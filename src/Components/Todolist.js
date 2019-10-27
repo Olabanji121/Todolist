@@ -1,17 +1,32 @@
-import React, { Component } from 'react';
-import TodoItem from './TodoItem'
+import React, { Component } from "react";
+import TodoItem from "./TodoItem";
 
 export default class Todolist extends Component {
-    render() {
-        return (
-            <div className='col-10 mx-auto col-md-8 mt-5'>
-            
-                <ul className="list-group">
-                <h2 className="text-center">Todo List</h2>
-                <TodoItem/>
-                </ul>
-                
-            </div>
-        )
-    }
+	render() {
+		const { items, handleDelete, handleEdit, clearList } = this.props;
+		return (
+			<ul className="list-group my-5">
+				<h3 className="text-center">Todo List</h3>
+				{/* <TodoItem handleDelete={handleDelete} handleEdit={handleEdit}/> */}
+				{items.map(item => {
+					return (
+						<TodoItem
+							key={item.id}
+							title={item.title}
+							handleDelete={() => handleDelete(item.id)}
+							handleEdit={() => handleEdit(item.id)}
+						></TodoItem>
+					);
+				})}
+				<button
+					type="submit"
+					className="btn btn-block btn-danger mt-5"
+					onClick={clearList}
+				>
+					{" "}
+					Clear List{" "}
+				</button>
+			</ul>
+		);
+	}
 }

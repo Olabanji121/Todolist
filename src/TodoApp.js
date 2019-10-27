@@ -52,16 +52,6 @@ export class TodoApp extends Component {
 	};
 
 	handleEdit = id => {
-
-        // const filterItem = this.state.items.filter(item => item.id !== id);
-		// console.log(filterItem)
-		// const selectedItem = this.state.items.find(item=> item.id === id)
-		// this.setState({
-		// 	items: filterItem,
-		// 	item: selectedItem.title,
-		// 	id:id,
-		// 	editItem: true
-		// })
         // console.log(`handle edit ${id} `);
         const filterItem = this.state.items.filter(item=> item.id !== id);
         const selectedItem = this.state.items.find(item=> item.id === id);
@@ -74,18 +64,7 @@ export class TodoApp extends Component {
 
         
 	};
-
-    // handleEdit = id => {
-	// 	const filterItem = this.state.items.filter(item => item.id !== id);
-	// 	console.log(filterItem)
-	// 	const selectedItem = this.state.items.find(item=> item.id === id)
-	// 	this.setState({
-	// 		items: filterItem,
-	// 		item: selectedItem.title,
-	// 		id:id,
-	// 		editItem: true
-	// 	})
-	// };
+    
 
 	clearList = () => {
         // console.log("clear list");
@@ -99,7 +78,7 @@ export class TodoApp extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-10 mx-auto col-md-8 mt-5">
-						<h1 className="text-capitalize text-center"> Todo App</h1>
+						<h1 className="text-capitalize text-center"> Todo List</h1>
 						<TodoInput
 							item={this.state.item}
 							handleChange={(this, this.handleChange)}
